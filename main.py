@@ -10,6 +10,8 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 import re
+import buttonFunct as bf
+import randomizer as rand
 
 class IntInput(TextInput):
 
@@ -32,19 +34,28 @@ class SizeInput(TextInput):
         else:
             return super(SizeInput, self).insert_text('', from_undo = from_undo)
 
-class OptionsScreen(GridLayout):
 
-    def __init__(self, **kwargs):
-        super(OptionsScreen, self).__init__(**kwargs)
-        self.cols = 2
-        self.add_widget(Label(text='Size of Map (S, M, L)'))
-        self.defSize = SizeInput()
-        self.add_widget(self.defSize)
-        self.add_widget(Label(text='Number of Counters'))
-        self.counters = IntInput()
-        self.add_widget(self.counters)
-        self.add_widget(Button(text = 'Build'))
-        self.add_widget(Button(text = 'Advanced Properties'))
+class OptionsScreen(Widget):
+
+    # def __init__(self, **kwargs):
+    #     super(OptionsScreen, self).__init__(**kwargs)
+    #     self.cols = 2
+    #     self.add_widget(Label(text='Size of Map (S, M, L)'))
+    #     self.defSize = SizeInput()
+    #     self.add_widget(self.defSize)
+    #     self.add_widget(Label(text='Number of Counters'))
+    #     self.counters = IntInput()
+    #     self.add_widget(self.counters)
+
+
+    def update(self):
+        try:
+            x, y, enterX, enterY = rand.getDimentions(self.defSize.text)
+            print(x,y, enterX, enterY)
+        except Exception as e:
+            print(e)
+
+
 
 
 class MyApp(App):

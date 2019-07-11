@@ -1,0 +1,22 @@
+<OptionsScreen>:
+    defSize: wantSize
+    counters: counts
+
+    GridLayout:
+        cols: 2
+        rows: 3
+        size: root.size
+        Label:
+            text: 'Size'
+        SizeInput:
+            id: wantSize
+        Label:
+            text: 'Number of Counters'
+        IntInput:
+            id: counts
+        Button:
+            text: 'Create'
+            on_press: root.update()
+        Button:
+            text: 'Advanced Options'
+            on_press: root.bf.moreOptions()
