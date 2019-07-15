@@ -36,7 +36,8 @@ class OptionsScreen(GridLayout):
             self._trigger_layout()
             self.clear_widgets()
             #pprint(vars(self))
-            self.add_widget(OpenSpace())
+            for i in range(self.cols *self.rows):
+                self.add_widget(OpenSpace())
         except Exception as e:
             print(e)
 
