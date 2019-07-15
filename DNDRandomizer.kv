@@ -1,0 +1,25 @@
+# <OpenSpace@Image>:
+#     source: 'tile.png'
+
+<OptionsScreen>:
+    defSize: wantSize
+    counters: counts
+    id: layout
+    Label:
+        id: sizePrompt
+        text: 'Size'
+    SizeInput:
+        id: wantSize
+    Label:
+        text: 'Number of Counters'
+        id: counterPrompts
+    IntInput:
+        id: counts
+    Button:
+        id: createButton
+        text: 'Create'
+        on_press: root.update()
+    Button:
+        id: optionsButton
+        text: 'Advanced Options'
+        on_press: root.bf.moreOptions()
