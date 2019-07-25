@@ -11,19 +11,12 @@ import buttonFunct as bf
 import randomizer as rand
 from inputs import IntInput, SizeInput
 from pprint import pprint
-from Items import OpenSpace
+from Items import OpenSpace, Blank
 
 class OptionsScreen(GridLayout):
 
     def __init__(self, **kwargs):
         super(OptionsScreen, self).__init__(**kwargs)
-    #     self.cols = 2
-    #     self.add_widget(Label(text='Size of Map (S, M, L)'))
-    #     self.defSize = SizeInput()
-    #     self.add_widget(self.defSize)
-    #     self.add_widget(Label(text='Number of Counters'))
-    #     self.counters = IntInput()
-    #     self.add_widget(self.counters)
 
 # self.ids.layout.remove_widget(self.ids.counts)
 
@@ -37,8 +30,7 @@ class OptionsScreen(GridLayout):
             self.clear_widgets()
             #pprint(vars(self))
             for i in range(self.cols *self.rows):
-                self.add_widget(OpenSpace())
-        except Exception as e:
+                self.add_widget(OpenSpace(self.cols, self.rows, size_hint_x=1, size_hint_y = 1, width=50, height = 50))
             print(e)
 
     def createSize(this, x, y, enterX, enterY):
@@ -53,7 +45,6 @@ class OptionsScreen(GridLayout):
             this.cols = x + enterX
             this.rows = y
         this._fill_rows_cols_sizes()
-        #pprint(vars(this))
 
 
 class DNDRandomizerApp(App):
