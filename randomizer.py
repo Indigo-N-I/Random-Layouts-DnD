@@ -48,4 +48,7 @@ def getDimentions(size):
 4-> left
 """
 def whereEnter():
-    return rand.randint(1,4)
+    return 2 #rand.randint(1,4)
+
+def gap(total, need):
+    return rand.randint(0,total-need)
